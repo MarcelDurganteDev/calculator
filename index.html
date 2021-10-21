@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <script src="main.js" defer></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -14,9 +13,9 @@
     <div class='calculator'>
         <div class='menu'>
             <div class="controls">
-                <button>×</button>
-                <button>_</button>
-                <button>+</button>
+                <button class="clear-red"></button>
+                <button class="clear-yellow"></button>
+                <button></button>
             </div>
             <div class="toggle">
                 <label for="toggle">
@@ -27,35 +26,35 @@
             </div>
         </div>
         <div class="mini-display" id='mini'>
-
+            0
         </div>
         <div class="main-display">
-
+            0
         </div>
         <div class="keys">
-            <button class="operators" id='c'>C</button>
-            <button class="operators" id='masMenos'>±</button>
-            <button class="operators" id='modulo'>%</button>
-            <button class="operators" id='division'>÷</button>
-            <button class="number" id='7' value="7">7</button>
-            <button class="number" id='8'>8</button>
-            <button class="number" id='9'>9</button>
-            <button class="operators" id='multiply'>×</button>
-            <button class="number" id='4'>4</button>
-            <button class="number" id='5'>5</button>
-            <button class="number" id='6'>6</button>
-            <button class="operators" id='c'>-</button>
-            <button class="number" id='1'>1</button>
-            <button class="number" id='2'>2</button>
-            <button class="number" id='3'>3</button>
-            <button class="operators" id='plus'>+</button>
-            <button class="number" id='0'>0</button>
+            <button class="operators red" id='c'>C</button>
+            <button class="operators orange" id='masMenos'>±</button>
+            <button class="operators orange" id='modulo'>%</button>
+            <button class="operators orange" id='division'>÷</button>
+            <button class="number" id='7' value=7>7</button>
+            <button class="number" id='8' value="8">8</button>
+            <button class="number" id='9' value="9">9</button>
+            <button class="operators orange" id='multiply'>×</button>
+            <button class="number" id='4' value="4">4</button>
+            <button class="number" id='5' value="5">5</button>
+            <button class="number" id='6' value="6">6</button>
+            <button class="operators orange" id='c'>-</button>
+            <button class="number" id='1' value="1">1</button>
+            <button class="number" id='2' value="2">2</button>
+            <button class="number" id='3' value="3">3</button>
+            <button class="operators orange" id='plus'>+</button>
+            <button class="number" id='cero' value="0">0</button>
             <button class="number" id='dot'>.</button>
-            <button class="number"></button>
-            <button class="operators" id='='>=</button>
+
+            <button class="operators dark-orange" id='='>=</button>
         </div>
     </div>
-
+    <script src="main.js" defer></script>
 </body>
 
 </html>
