@@ -10,37 +10,53 @@ html {
   box-sizing: inherit;
 }
 
+:root {
+  --green: rgb(149,222,209);
+  --dark-green: rgb(57,179,135);
+  --dark-blue: rgba(33,43,65,255);
+  --ligth-green: rgb(244,253,251);
+  --ligth-blue: rgba(46,57,81,255);
+  --light-grey: rgba(142,160,154,255);
+  --graffiti: rgba(54,62,71,255);
+  --red: rgba(245,84,77,255);
+  --yellow: #f0be32;
+  --neon-green: #3fca3f;
+}
+
 /* main calculator box set-up*/
 .calculator {
-  border: solid 5px yellow;
-  border-radius: 5px;
+  border: 1px solid var(--dark-blue);
+  border-radius: 15px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* this way we adjust the display placement of the calculator */
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 700px;
 }
 
 .mini-display, .main-display{
   width: 100%;
-  height: 40px;
+  height: 13.5%;
   border: none;
-  background-color: #252525;
-  color: #fff;
+  background-color: var(--dark-blue);;
+  color: var(--dark-green);
   text-align: right;
-  padding-right: 20px;
-  padding-bottom: 5px;
+  justify-content:baseline;
+  padding-right: 15px;
+
 }
 
 .mini-display{
   font-size: 2rem;
-  padding-top: 10px;
+  padding-top: 40px;
 }
 
 .main-display{
   font-size: 4rem;
   padding-bottom: 10px;
+   padding-top: 30px
+
 }
 
 .keys {
@@ -48,17 +64,38 @@ html {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   height: 70%;
+  background-color: var(--ligth-blue);
+  align-items: center;
+  justify-content: center;
+  padding-left: 30px
+
+
 }
 
-#cero{
-  grid-column:1/3; /*  */
+.keys button {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border-style: none;
+  font-size: xx-large;
+}
+
+#equal {
+  grid-column:3/5;
+  height: 70px;
+  width: 90%;
+  border-radius: 5px;
+  border-style: none;
+  font-size: xx-large;
+
 }
 
 .menu{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background-color: grey;
   display: flex;
+  justify-content: space-between;
+  background-color: var(--dark-blue);
+  height: 3%;
+
 }
 
 .menu button{
@@ -68,26 +105,36 @@ html {
   border-radius: 25px;
 }
 .clear-red{
-  background-color: rgba(255, 35, 35, 0.514);
+  background-color: var(--red);
 }
 
 .clear-yellow{
-  background-color: rgba(255, 255, 0, 0.712);
+  background-color: var(--yellow);
 }
 
+.clear-green{
+  background-color: var(--neon-green);
+}
 
 body{
-  background-color: rgb(216, 240, 241);
+  background-color: var(--green);
 }
 
-.orange{
-  background-color: rgb(233, 167, 45);
+.dark-blue{
+  background-color: var(--dark-blue);
+  color: var(--dark-green);
 }
 
-.dark-orange{
-  background-color: darkorange;
+.number {
+background-color: var(--ligth-blue);
+color: var(--light-grey);
+}
+
+.dark-green{
+  background-color: var(--dark-green);
 }
 
 .red{
-  background-color: rgb(204, 84, 84);
+  background-color: var(--dark-blue);
+  color: var(--dark-green)
 }
