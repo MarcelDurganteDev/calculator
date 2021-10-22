@@ -1,27 +1,61 @@
 class Calculator {
-    constructor(miniScreen, mainScreen) {
-    this.miniScreen = miniScreen
-    this.mainScreen = mainScreen
-    this.clearScreen()
-  }
+	constructor(miniScreen, mainScreen) {
+		this.miniScreen = miniScreen;
+		this.mainScreen = mainScreen;
+		this.clearScreen();
+	}
 
-  clearScreen() {
-      this.currentNumber = ''
-      this.previousNumber = ''
-      this.operator = undefined
-  }
+	clearScreen() {
+		this.currentNumber = "";
+		this.previousNumber = "";
+		this.operator = undefined;
+	}
 
-  appendNumber(number) {
-      if (number === '.' && this.currentNumber.includes('.')) return
-    this.currentNumber = this.currentNumber.toString() + number.toString()
+	appendNumber(number) {
+		if (number === "." && this.currentNumber.includes(".")) return;
+		this.currentNumber = this.currentNumber.toString() + number.toString();
+	}
+	upDateScreen() {
+		this.mainScreen.innerText = this.currentNumber;
+	}
 
+    chooseOperation(operation){
+        if(this.currentNumber === '') return
+        if(this.previousNumber !== ''){
+            this.calculate()
+        }
+        this.operation = operation
+        this.previousNumber = this.currentNumber
+        this.currentNumber = ''
+    }
 
-  }
-  upDateScreen() {
-      this.mainScreen.innerText = this.currentNumber
-  }
-
-
+    calculate(){
+        let calculation
+        const previousNum = parseFloat(this.previousNumber)
+        const currentNum = parseFloat(this.currentNumber)
+        if(isNaN(previousNum) || isNaN(currentNum)) return
+        switch (this.operation) {
+					case "+":
+						calculation = previousNum + currentNum;
+						break;
+					case "-":
+						calculation = previousNum - currentNum;
+						break;
+					case "×":
+						calculation = previousNum * currentNum;
+						break;
+					case "÷":
+						calculation = previousNum / currentNum;
+						break;
+                    case '%':
+                        calculation = previousNum % currentNum;
+					default:
+						return;
+				}
+        this.currentNumber = calculation
+        this.operation = undefined
+        this.previousNumber = ''
+    }
 }
 
 //Here begins buttons id's storage
@@ -55,19 +89,17 @@ function printMini() {
     console.log(btnSevenValue);
     console.log(typeof(btnSevenValue)); */
 
-
 // Here begins light-dark mode logic
 
+var btnLight = document.getElementById("button-toggle");
+btnLight.addEventListener("click", changeColor);
 
-var btnLight = document.getElementById('button-toggle');
-btnLight.addEventListener('click', changeColor);
-
-function changeColor(){
-    document.getElementById('calculator').classList.toggle('toggle');
-    document.getElementById('keys').classList.toggle('toggle');
-    document.getElementById('menu').classList.toggle('toggle');
-    document.getElementById('display').classList.toggle('toggle');
-    document.querySelectorAll('.number').classList.toggle('toggle');
+function changeColor() {
+	document.getElementById("calculator").classList.toggle("toggle");
+	document.getElementById("keys").classList.toggle("toggle");
+	document.getElementById("menu").classList.toggle("toggle");
+	document.getElementById("display").classList.toggle("toggle");
+	document.querySelectorAll(".number").classList.toggle("toggle");
 }
 
 /* var btnDark = document.getElementById('invert-color');
@@ -81,23 +113,34 @@ function changeToLightColor(){
 function changeToDarkColor(){
     document.getElementById('invert-color').id = 'two'; */
 
-const btnNumber = document.querySelectorAll('[data-number]');
-const btnOperator = document.querySelectorAll('[data-operation]');
-const btnEqual = document.querySelector('[data-equal]');
-const btnClear = document.querySelector('[data-clear]');
-const miniScreen = document.querySelector('[data-miniScreen]');
-const mainScreen = document.querySelector('[data-mainScreen]');
+const btnNumber = document.querySelectorAll("[data-number]");
+const btnOperator = document.querySelectorAll("[data-operation]");
+const btnEqual = document.querySelector("[data-equal]");
+const btnClear = document.querySelector("[data-clear]");
+const miniScreen = document.querySelector("[data-miniScreen]");
+const mainScreen = document.querySelector("[data-mainScreen]");
 const calculator = new Calculator(miniScreen, mainScreen);
 
-btnNumber.forEach(key => {
-    key.addEventListener('click', () =>{
-        calculator.appendNumber(key.innerText)
-        calculator.upDateScreen()
-    });
+btnNumber.forEach((key) => {
+	key.addEventListener("click", () => {
+		calculator.appendNumber(key.innerText);
+		calculator.upDateScreen();
+	});
 });
 
-btnClear.addEventListener('click', () => {
-    calculator.clearScreen()
-})
-console.log(btnClear)
+btnClear.addEventListener("click", () => {
+	calculator.clearScreen();
+    calculator.upDateScreen();
+});
 
+btnOperator.forEach(button => {
+	button.addEventListener("click", () => {
+		calculator.chooseOperation(button.innerText);
+		calculator.upDateScreen();
+	});
+});
+
+btnEqual.addEventListener("click", () => {
+	calculator.calculate();
+	calculator.upDateScreen();
+});
