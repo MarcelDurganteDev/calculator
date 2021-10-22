@@ -79,6 +79,11 @@ html {
   font-size: xx-large;
 }
 
+.keys button:hover{
+  background-color: rgb(167, 154, 154);
+  color: black;
+}
+
 #equal {
   grid-column:3/5;
   height: 70px;
@@ -86,7 +91,10 @@ html {
   border-radius: 5px;
   border-style: none;
   font-size: xx-large;
+}
 
+#equal:hover{
+  background-color: rgb(211, 143, 16);
 }
 
 .menu{
@@ -106,7 +114,6 @@ html {
   margin-right: 8px;
   margin-top: 8px;
   display: flex;
-  justify-content: flex-start;
 }
 
 #button-toggle{
@@ -115,7 +122,7 @@ html {
   border: 1px solid var(--dark-blue);
   border-radius: 25px;
   margin: auto;
-
+  justify-content: flex-start;
 }
 
 .menu button{
