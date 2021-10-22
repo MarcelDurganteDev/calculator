@@ -105,7 +105,12 @@ html {
   margin: 5px;
 }
 
-.toggle{
+.divToggle {
+  justify-content: flex-start;
+  align-items:space-between;
+}
+
+/* .toggle{
   height: 20px;
   width: 40px;
   background-color: var(--dark-green);
@@ -114,15 +119,49 @@ html {
   margin-right: 8px;
   margin-top: 8px;
   display: flex;
-}
+  justify-content: space-between;
+} */
 
 #button-toggle{
-  height: 19px;
-  width: 19px;
-  border: 1px solid var(--dark-blue);
-  border-radius: 25px;
-  margin: auto;
-  justify-content: flex-start;
+  font-size: 7px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--dark-green);
+  height: 3em;
+  width: 6em;
+  border-radius: 3em;
+  cursor: pointer;
+  outline: 0;
+  transition: background-color 0.09s ease-in-out;
+  position: relative;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#button-toggle:checked {
+background-color: white;
+padding-top: 10px;
+}
+
+#button-toggle::after {
+  content:"";
+  height: 3em;
+  width: 3em;
+  background-color: white;
+  border-radius: 3em;
+  position: absolute;
+  transform: left 0.09s ease-in-out;
+  box-shadow: 0 0.1em rgba(0, 0 ,0 , 0.5);
+  padding-top: 10px;
+
+}
+
+#button-toggle:checked::after {
+  left: 3em;
+  background-color: var(--dark-green);
+/*   padding-top: 10px;
+ */
 }
 
 .menu button{
