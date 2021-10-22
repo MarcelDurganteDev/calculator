@@ -23,9 +23,14 @@ html {
   --neon-green: #3fca3f;
 }
 
+/* light mode */
+/* .invert-color{
+-webkit-filter: invert(100%);
+  filter: invert (100%);
+} */
 /* main calculator box set-up*/
+
 .calculator {
-  border: 1px solid var(--dark-blue);
   border-radius: 15px;
   position: absolute;
   top: 50%;
@@ -38,14 +43,18 @@ html {
 
 .mini-display, .main-display{
   width: 100%;
-  height: 13.5%;
+  height: 13%;
   border: none;
-  background-color: var(--dark-blue);;
+  background-color: var(--dark-blue);
   color: var(--dark-green);
   text-align: right;
   justify-content:baseline;
   padding-right: 15px;
 
+}
+
+#display.toggle{
+  background-color: var(--ligth-blue);
 }
 
 .mini-display{
@@ -64,12 +73,16 @@ html {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  height: 67.5%;
+  height: 75%;
   background-color: var(--ligth-blue);
   align-items: center;
   justify-content: center;
   padding-left: 30px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
+
+
 
 .keys button {
   height: 70px;
@@ -130,12 +143,13 @@ html {
   background-color: var(--dark-green);
   height: 3em;
   width: 6em;
+  border: solid 1px black;
   border-radius: 3em;
   cursor: pointer;
   outline: 0;
   transition: background-color 0.09s ease-in-out;
   position: relative;
-  margin-top: 10px;
+  margin-top: 4px;
   margin-right: 10px;
 }
 
@@ -151,17 +165,18 @@ padding-top: 10px;
   background-color: white;
   border-radius: 3em;
   position: absolute;
-  transform: left 0.09s ease-in-out;
+  transform: scale(0.7);
+  left: 0;
+  transition: left 0.09s ease-in-out;
   box-shadow: 0 0.1em rgba(0, 0 ,0 , 0.5);
-  padding-top: 10px;
+
 
 }
 
 #button-toggle:checked::after {
   left: 3em;
   background-color: var(--dark-green);
-/*   padding-top: 10px;
- */
+
 }
 
 .menu button{
@@ -206,4 +221,26 @@ color: var(--light-grey);
 .red{
   background-color: var(--dark-blue);
   color: var(--dark-green)
+}
+
+/* Here begins light mode */
+
+.keys.toggle{
+  background-color:var(--ligth-green);
+}
+#calculator.toggle{
+  border: 1px solid var(--ligth-green);
+  background-color: var(--ligth-green);
+}
+
+.menu.toggle{
+  background-color: var(--ligth-green);
+}
+
+#display.toggle{
+  background-color: lightblue;
+}
+
+.number.toggle{
+  background-color: lightblue;
 }
