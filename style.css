@@ -143,7 +143,7 @@ html {
   background-color: var(--dark-green);
   height: 3em;
   width: 6em;
-  border: solid 1px black;
+  border: solid 1px transparent;
   border-radius: 3em;
   cursor: pointer;
   outline: 0;
