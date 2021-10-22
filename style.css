@@ -81,7 +81,7 @@ html {
 
 .keys button:hover{
   background-color: rgb(167, 154, 154);
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 #equal {
