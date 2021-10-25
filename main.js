@@ -9,7 +9,7 @@ class Calculator {
 		//With this function we reset the values every time the function starts
 		this.currentNumber = "";
 		this.previousNumber = "";
-		this.operator = undefined;
+		this.operation = undefined;
 	}
 	appendNumber(number) {
 		if (number === "." && this.currentNumber.includes(".")) return; //With this If statement we manage to just print one '.'
@@ -152,11 +152,3 @@ btnClose.addEventListener("click", closeAll);
 function closeAll() {
 	document.querySelector('[full-calculator]').classList.toggle('close');
 }
-
-jQuery(document).ready(function () {
-	if (navigator.userAgent.indexOf('Mac') > 0) {
-		jQuery('body').addClass('mac-os');
-	} else {
-		jQuery("body").addClass("pc");
-	}
-});

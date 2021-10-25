@@ -118,6 +118,16 @@ html {
   border-radius: 5px;
 }
 
+.menu button{
+  width: 15px;
+  height: 15px;
+  font-size: 7px;
+  border-radius: 50%;
+  margin-left: 8px;
+  margin-top: 8px;
+  border-style: none;
+}
+
 .divToggle {
   position: relative;
   display: block;
@@ -137,18 +147,15 @@ html {
 } */
 
 #button-toggle{
-  font-size: 6.5px;
-  appearance: none;
-  -moz-appearance: none;
   -webkit-appearance: none;
   background-color: var(--dark-green);
-  height: 3em;
-  width: 6em;
-  border-radius: 3em;
+  height: 15px;
+  width: 40px;
+  border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.09s ease-in-out;
   position: relative;
-  margin-right: 10px;
+  margin-right: 13px;
 }
 
 #button-toggle:checked {
@@ -158,32 +165,22 @@ border: 1px solid var(--light-grey)
 
 #button-toggle::after {
   content:"";
-  height: 2.5em;
-  width: 2.5em;
+  height: 15px;
+  width: 15px;
   border-radius: 50%;
   background-color: var(--white);
   position: absolute;
   right: 0;
   margin-top: 1px;
   transition: right 0.09s ease-in-out;
-  box-shadow: 0 0.1em var(--black-shadow);
+  box-shadow: 0 1px var(--black-shadow);
 }
 
 #button-toggle:checked::after {
-  right: 3em;
+  right: 20px;
   background-color: var(--white);
 }
 
-
-.menu button{
-  width: 15px;
-  height: 15px;
-  font-size: 7px;
-  border-radius: 25px;
-  margin-left: 8px;
-  margin-top: 8px;
-  border-style: none;
-}
 .clear-red{
   background-color: var(--red);
 }
