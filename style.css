@@ -11,16 +11,20 @@ html {
 }
 
 :root {
-  --green: rgb(149,222,209);
-  --dark-green: rgb(57,179,135);
-  --dark-blue: rgba(33,43,65,255);
+  --black-shadow: rgba(0, 0 ,0 , 0.9);
+  --white: rgb(255,255,255);
+  --green: rgb(159,205,190);
   --ligth-green: rgb(244,253,251);
-  --ligth-blue: rgba(46,57,81,255);
-  --light-grey: rgba(142,160,154,255);
-  --graffiti: rgba(54,62,71,255);
-  --red: rgba(245,84,77,255);
-  --yellow: #f0be32;
+  --dark-green: rgb(57,179,135);
   --neon-green: #3fca3f;
+  --ligth-blue: rgb(46,57,81);
+  --dark-blue: rgba(33,43,65);
+  --grey: rgb(167, 154, 154);
+  --light-grey: rgb(142,160,154);
+  --graffiti: rgb(54,62,71);
+  --orange: rgb(211, 143, 16);
+  --red: rgb(245,84,77);
+  --yellow: #f0be32;
 }
 
 /* light mode */
@@ -53,10 +57,6 @@ html {
 
 }
 
-#display.toggle{
-  background-color: var(--ligth-blue);
-}
-
 .mini-display{
   font-size: 2rem;
   padding-top: 40px;
@@ -82,8 +82,6 @@ html {
   border-bottom-right-radius: 15px;
 }
 
-
-
 .keys button {
   height: 70px;
   width: 70px;
@@ -93,8 +91,8 @@ html {
 }
 
 .keys button:hover{
-  background-color: rgb(167, 154, 154);
-  color: rgb(0, 0, 0);
+  background-color: var(--grey);
+  color: var(--dark-blue);
 }
 
 #equal {
@@ -107,7 +105,7 @@ html {
 }
 
 #equal:hover{
-  background-color: rgb(211, 143, 16);
+  background-color: var(--orange);
 }
 
 .menu{
@@ -119,8 +117,9 @@ html {
 }
 
 .divToggle {
-  justify-content: flex-start;
-  align-items:space-between;
+  position: relative;
+  display: block;
+  margin-top: 10px;
 }
 
 /* .toggle{
@@ -136,48 +135,42 @@ html {
 } */
 
 #button-toggle{
-  font-size: 7px;
+  font-size: 6.5px;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   background-color: var(--dark-green);
   height: 3em;
   width: 6em;
-  border: solid 1px transparent;
   border-radius: 3em;
   cursor: pointer;
-  outline: 0;
   transition: background-color 0.09s ease-in-out;
   position: relative;
-  margin-top: 4px;
   margin-right: 10px;
+
 }
 
 #button-toggle:checked {
-background-color: white;
-padding-top: 10px;
+background-color: var(--white);
 }
 
 #button-toggle::after {
   content:"";
   height: 3em;
   width: 3em;
-  background-color: white;
-  border-radius: 3em;
+  border-radius: 50%;
+  background-color: var(--white);
   position: absolute;
-  transform: scale(0.7);
-  left: 0;
-  transition: left 0.09s ease-in-out;
-  box-shadow: 0 0.1em rgba(0, 0 ,0 , 0.5);
-
-
+  right: 0;
+  transition: right 0.09s ease-in-out;
+  box-shadow: 0 0.1em var(--black-shadow);
 }
 
 #button-toggle:checked::after {
-  left: 3em;
-  background-color: var(--dark-green);
-
+  right: 3em;
+  background-color: var(--white);
 }
+
 
 .menu button{
   width: 15px;
@@ -223,24 +216,38 @@ color: var(--light-grey);
   color: var(--dark-green)
 }
 
-/* Here begins light mode */
+/* LIGHT MODE */
+
+.calculator.toggle{
+  background-color: var(--ligth-green);
+}
+
+.mini-display.toggle {
+  background-color: var(--ligth-green);
+  color: var(--ligth-green);
+}
+
+.main-display.toggle {
+  background-color: var(--ligth-green);
+  color: var(--ligth-green);
+}
 
 .keys.toggle{
-  background-color:var(--ligth-green);
-}
-#calculator.toggle{
-  border: 1px solid var(--ligth-green);
-  background-color: var(--ligth-green);
-}
+  background-color: var(--white);
 
-.menu.toggle{
-  background-color: var(--ligth-green);
-}
-
-#display.toggle{
-  background-color: lightblue;
 }
 
 .number.toggle{
-  background-color: lightblue;
+  background-color: var(--white);
+  color: var(--dark-blue);
 }
+
+.operators.toggle {
+  background-color: var(--ligth-green);
+  color: var(--dark-blue);
+}
+
+.menu.toggle{
+  background-color: var(--light-green);
+}
+
