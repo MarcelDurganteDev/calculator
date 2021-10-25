@@ -1,10 +1,12 @@
-class Calculator { //Object declaration
+class Calculator {
+	//Object declaration
 	constructor(miniScreen, mainScreen) {
 		this.miniScreen = miniScreen;
 		this.mainScreen = mainScreen;
 		this.clearScreen();
 	}
-	clearScreen() { //With this function we reset the values every time the function starts
+	clearScreen() {
+		//With this function we reset the values every time the function starts
 		this.currentNumber = "";
 		this.previousNumber = "";
 		this.operator = undefined;
@@ -15,7 +17,8 @@ class Calculator { //Object declaration
 	}
 	chooseOperation(operation) {
 		if (this.currentNumber === "") return; //We check the status of the operation
-		if (this.previousNumber !== "") { //In case previousNumber is something we proceed to calculate (ex. 5+5+5 . First the calculator execute 5+5, reflexes the result and the add 5)
+		if (this.previousNumber !== "") {
+			//In case previousNumber is something we proceed to calculate (ex. 5+5+5 . First the calculator execute 5+5, reflexes the result and the add 5)
 			this.calculate();
 		}
 		this.operation = operation; //This way we define operation in the object
@@ -27,7 +30,9 @@ class Calculator { //Object declaration
 		const previousNum = parseFloat(this.previousNumber); //we change the value to float so the machine can operate
 		const currentNum = parseFloat(this.currentNumber);
 		if (isNaN(previousNum) || isNaN(currentNum)) return; //Check if is a number
-		switch (this.operation) { //Choose between operations and operate. The result stored on calculation is refered in currentNumber
+		switch (
+			this.operation //Choose between operations and operate. The result stored on calculation is refered in currentNumber
+		) {
 			case "+":
 				calculation = previousNum + currentNum;
 				break;
@@ -46,16 +51,20 @@ class Calculator { //Object declaration
 			default:
 				return;
 		}
+		this.logText = document.getElementById("myPopup");
+		this.logText.innerText = this.logText.innerText + ' ' + `${this.previousNumber}${this.operation}${this.currentNumber}=${calculation}` + ' ';
 		this.currentNumber = calculation; //Set  currentNumber as calculation so the function updateScreen can read the result
 		this.operation = undefined; //reset the operation
 		this.previousNumber = ""; //reset the previous (in chooseOperation we chage the value of previous to current)
 	}
+
 	upDateScreen() {
 		this.mainScreen.innerText = this.currentNumber; //The result from calculation is displayed
-		if (this.operation != null) { //check the status of operation (which origin is in chooseOperation) to print into miniScreen
+		if (this.operation != null) {
+			//check the status of operation (which origin is in chooseOperation) to print into miniScreen
 			this.miniScreen.innerText = `${this.previousNumber}${this.operation}`;
-		}else{
-			this.miniScreen.innerText = '' //Clear miniscreen
+		} else {
+			this.miniScreen.innerText = ""; //Clear miniscreen
 		}
 	}
 }
@@ -92,7 +101,8 @@ const btnPositive_Negative = document.querySelector('[data-positive_negative]')
 const miniScreen = document.querySelector("[data-miniScreen]");
 const mainScreen = document.querySelector("[data-mainScreen]");
 const calculator = new Calculator(miniScreen, mainScreen);
-
+const btnLog = document.querySelector('[data-log]');
+const btnClose = document.querySelector('[data-close]');
 
 //BUTTONS ITERATION WITH CALCULATOR OBJECT AND IT'S FUNCTIONS
 
@@ -119,3 +129,18 @@ btnEqual.addEventListener("click", () => {
 	calculator.calculate();
 	calculator.upDateScreen();
 });
+
+
+//Funtion to open/close the operation log
+
+function operationLog() {
+	var popup = document.getElementById("myPopup");
+	popup.classList.toggle("show");
+}
+
+
+//Function to close the calculator
+btnClose.addEventListener("click", closeAll);
+function closeAll(){
+	document.querySelector('[full-calculator]').classList.toggle('close')
+}

@@ -9,17 +9,20 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body full-calculator>
     <div class='calculator' id='calculator'>
         <div class='menu' id="menu">
             <div class="controls">
-                <button class="clear-red"></button>
+                <button data-close class="clear-red"></button>
                 <button class="clear-yellow"></button>
                 <button class='clear-green'></button>
             </div>
             <div class='divToggle'>
                 <input type="checkbox" name="toggle" id='button-toggle'></button>
             </div>
+        <div data-log class="popup" onclick="operationLog()">
+            <span data-log-text class="popuptext" id="myPopup"></span>
+        </div>
         </div>
         <div id="display">
             <div data-miniScreen class="mini-display" id='mini'>
