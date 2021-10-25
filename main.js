@@ -1,42 +1,33 @@
-class Calculator {
+class Calculator { //Object declaration
 	constructor(miniScreen, mainScreen) {
 		this.miniScreen = miniScreen;
 		this.mainScreen = mainScreen;
 		this.clearScreen();
 	}
-
-	clearScreen() {
+	clearScreen() { //With this function we reset the values every time the function starts
 		this.currentNumber = "";
 		this.previousNumber = "";
 		this.operator = undefined;
 	}
-
 	appendNumber(number) {
-		if (number === "." && this.currentNumber.includes(".")) return;
+		if (number === "." && this.currentNumber.includes(".")) return; //With this If statement we manage to just print one '.'
 		this.currentNumber = this.currentNumber.toString() + number.toString();
 	}
-	upDateScreen() {
-		this.mainScreen.innerText = this.currentNumber;
-		if (this.operation != null) {
-			this.miniScreen.innerText = `${this.previousNumber} ${this.operation}`}
-	}
-
 	chooseOperation(operation) {
-		if (this.currentNumber === '') return;
-		if (this.previousNumber !== '') {
+		if (this.currentNumber === "") return; //We check the status of the operation
+		if (this.previousNumber !== "") { //In case previousNumber is something we proceed to calculate (ex. 5+5+5 . First the calculator execute 5+5, reflexes the result and the add 5)
 			this.calculate();
 		}
-		this.operation = operation;
-		this.previousNumber = this.currentNumber;
-		this.currentNumber = '';
+		this.operation = operation; //This way we define operation in the object
+		this.previousNumber = this.currentNumber; //We trasfer the value of current to previous
+		this.currentNumber = ""; // and then we set to '' currentNumber.
 	}
-
 	calculate() {
-		let calculation;
-		const previousNum = parseFloat(this.previousNumber);
+		let calculation; //we define the variable.
+		const previousNum = parseFloat(this.previousNumber); //we change the value to float so the machine can operate
 		const currentNum = parseFloat(this.currentNumber);
-		if (isNaN(previousNum) || isNaN(currentNum)) return;
-		switch (this.operation) {
+		if (isNaN(previousNum) || isNaN(currentNum)) return; //Check if is a number
+		switch (this.operation) { //Choose between operations and operate. The result stored on calculation is refered in currentNumber
 			case "+":
 				calculation = previousNum + currentNum;
 				break;
@@ -49,15 +40,23 @@ class Calculator {
 			case "÷":
 				calculation = previousNum / currentNum;
 				break;
-			case '%':
+			case "%":
 				calculation = previousNum % currentNum;
 				break;
 			default:
 				return;
 		}
-		this.currentNumber = calculation;
-		this.operation = undefined;
-		this.previousNumber = '';
+		this.currentNumber = calculation; //Set  currentNumber as calculation so the function updateScreen can read the result
+		this.operation = undefined; //reset the operation
+		this.previousNumber = ""; //reset the previous (in chooseOperation we chage the value of previous to current)
+	}
+	upDateScreen() {
+		this.mainScreen.innerText = this.currentNumber; //The result from calculation is displayed
+		if (this.operation != null) { //check the status of operation (which origin is in chooseOperation) to print into miniScreen
+			this.miniScreen.innerText = `${this.previousNumber}${this.operation}`;
+		}else{
+			this.miniScreen.innerText = '' //Clear miniscreen
+		}
 	}
 }
 
@@ -73,22 +72,29 @@ function changeColor() {
 	document.getElementById("menu").classList.toggle("toggle");
 	document.getElementById("main-screen").classList.toggle("toggle");
 	document.getElementById("mini").classList.toggle("toggle");
+	document.getElementById("masMenos").classList.toggle("toggle");
 	btnNumber.forEach(key => {
 		key.classList.toggle("toggle");
 	});
 	btnOperator.forEach(key => {
 		key.classList.toggle('toggle')
 	});
-
+	document.getElementById('c').classList.toggle('toggle');
 }
+
+// BUTTONS DECLARATION
 
 const btnNumber = document.querySelectorAll("[data-number]");
 const btnOperator = document.querySelectorAll("[data-operation]");
 const btnEqual = document.querySelector("[data-equal]");
 const btnClear = document.querySelector("[data-clear]");
+const btnPositive_Negative = document.querySelector('[data-positive_negative]')
 const miniScreen = document.querySelector("[data-miniScreen]");
 const mainScreen = document.querySelector("[data-mainScreen]");
 const calculator = new Calculator(miniScreen, mainScreen);
+
+
+//BUTTONS ITERATION WITH CALCULATOR OBJECT AND IT'S FUNCTIONS
 
 btnNumber.forEach((key) => {
 	key.addEventListener("click", () => {
