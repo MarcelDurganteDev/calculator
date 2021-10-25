@@ -31,7 +31,7 @@ class Calculator {
 		const currentNum = parseFloat(this.currentNumber);
 		if (isNaN(previousNum) || isNaN(currentNum)) return; //Check if is a number
 		switch (
-			this.operation //Choose between operations and operate. The result stored on calculation is refered in currentNumber
+		this.operation //Choose between operations and operate. The result stored on calculation is refered in currentNumber
 		) {
 			case "+":
 				calculation = previousNum + currentNum;
@@ -57,12 +57,8 @@ class Calculator {
 		this.operation = undefined; //reset the operation
 		this.previousNumber = ""; //reset the previous (in chooseOperation we chage the value of previous to current)
 	}
-	positiveNegative(){
-		if(this.currentNumber > 0){
-			this.currentNumber *= -1
-		}else{
-			this.currentNumber = Math.abs(this.currentNumber);
-		}
+	positiveNegative() {
+		this.currentNumber *= -1;
 	}
 
 	upDateScreen() {
@@ -93,7 +89,7 @@ function changeColor() {
 		key.classList.toggle("toggle");
 	});
 	btnOperator.forEach(key => {
-		key.classList.toggle('toggle')
+		key.classList.toggle('toggle');
 	});
 	document.getElementById('c').classList.toggle('toggle');
 }
@@ -104,7 +100,7 @@ const btnNumber = document.querySelectorAll("[data-number]");
 const btnOperator = document.querySelectorAll("[data-operation]");
 const btnEqual = document.querySelector("[data-equal]");
 const btnClear = document.querySelector("[data-clear]");
-const btnPositive_Negative = document.querySelector('[data-positive_negative]')
+const btnPositive_Negative = document.querySelector('[data-positive_negative]');
 const miniScreen = document.querySelector("[data-miniScreen]");
 const mainScreen = document.querySelector("[data-mainScreen]");
 const calculator = new Calculator(miniScreen, mainScreen);
@@ -153,6 +149,14 @@ function operationLog() {
 
 //Function to close the calculator
 btnClose.addEventListener("click", closeAll);
-function closeAll(){
-	document.querySelector('[full-calculator]').classList.toggle('close')
+function closeAll() {
+	document.querySelector('[full-calculator]').classList.toggle('close');
 }
+
+jQuery(document).ready(function () {
+	if (navigator.userAgent.indexOf('Mac') > 0) {
+		jQuery('body').addClass('mac-os');
+	} else {
+		jQuery("body").addClass("pc");
+	}
+});

@@ -115,6 +115,7 @@ html {
   background-color: var(--dark-blue);
   height: 3%;
   margin: 5px;
+  border-radius: 5px;
 }
 
 .divToggle {
@@ -143,7 +144,6 @@ html {
   background-color: var(--dark-green);
   height: 3em;
   width: 6em;
-  border: 1px solid var(--dark-blue);
   border-radius: 3em;
   cursor: pointer;
   transition: background-color 0.09s ease-in-out;
