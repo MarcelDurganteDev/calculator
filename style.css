@@ -152,7 +152,8 @@ html {
 }
 
 #button-toggle:checked {
-background-color: var(--white);
+background-color: rgb(231, 229, 229);
+border: 1px solid var(--light-grey)
 }
 
 #button-toggle::after {
@@ -277,6 +278,7 @@ color: var(--light-grey);
 .popup .popuptext {
   visibility: hidden;
   font-size: 20px;
+  height: 160px;
   width: 160px;
   background-color: #555;
   color: #fff;
