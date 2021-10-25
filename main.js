@@ -57,6 +57,13 @@ class Calculator {
 		this.operation = undefined; //reset the operation
 		this.previousNumber = ""; //reset the previous (in chooseOperation we chage the value of previous to current)
 	}
+	positiveNegative(){
+		if(this.currentNumber > 0){
+			this.currentNumber *= -1
+		}else{
+			this.currentNumber = Math.abs(this.currentNumber);
+		}
+	}
 
 	upDateScreen() {
 		this.mainScreen.innerText = this.currentNumber; //The result from calculation is displayed
@@ -127,6 +134,11 @@ btnClear.addEventListener("click", () => {
 
 btnEqual.addEventListener("click", () => {
 	calculator.calculate();
+	calculator.upDateScreen();
+});
+
+btnPositive_Negative.addEventListener("click", () => {
+	calculator.positiveNegative();
 	calculator.upDateScreen();
 });
 
