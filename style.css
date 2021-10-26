@@ -53,7 +53,7 @@ html {
   text-align: right;
   justify-content:baseline;
   padding-right: 15px;
-
+  overflow: hidden;
 }
 
 .mini-display{
@@ -147,15 +147,18 @@ html {
 } */
 
 #button-toggle{
+  font-size: 6.5px;
+  appearance: none;
+  -moz-appearance: none;
   -webkit-appearance: none;
   background-color: var(--dark-green);
-  height: 15px;
-  width: 40px;
-  border-radius: 50px;
+  height: 3em;
+  width: 6em;
+  border-radius: 3em;
   cursor: pointer;
   transition: background-color 0.09s ease-in-out;
   position: relative;
-  margin-right: 13px;
+  margin-right: 10px;
 }
 
 #button-toggle:checked {
@@ -165,19 +168,20 @@ border: 1px solid var(--light-grey)
 
 #button-toggle::after {
   content:"";
-  height: 15px;
-  width: 15px;
+  height: 2.5em;
+  width: 2.5em;
   border-radius: 50%;
   background-color: var(--white);
   position: absolute;
   right: 0;
-  margin-top: 1px;
+  margin-top: 2px;
   transition: right 0.09s ease-in-out;
-  box-shadow: 0 1px var(--black-shadow);
+  box-shadow: 0 0.1em var(--black-shadow);
 }
 
 #button-toggle:checked::after {
-  right: 20px;
+  padding-bottom: 3px;
+  right: 3em;
   background-color: var(--white);
 }
 
@@ -230,6 +234,7 @@ color: var(--light-grey);
 .main-display.toggle {
   background-color: var(--ligth-green);
   color: var(--dark-blue);
+
 }
 
 .keys.toggle{
@@ -254,16 +259,16 @@ color: var(--light-grey);
 
 /* CONSOLE LOG*/
 
-/* Popup container - can be anything you want */
+/* Popup container */
 .popup {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  background-color: wheat;
+  color: rgba(255, 255, 255, 0);
+  height: 20px;
+  width: 30px;
+  border-radius: 25%;
+  background-color: rgb(196, 200, 240);
   margin-top: 5px;
   margin-right: 5px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -272,42 +277,21 @@ color: var(--light-grey);
 }
 
 /* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
+.popup:hover {
+  visibility: visible;
   font-size: 20px;
-  height: 160px;
-  width: 160px;
+  height: 400px;
+  width: 400px;
   background-color: #555;
   color: #fff;
-  text-align: center;
+  text-align: initial;
   border-radius: 6px;
   padding: 8px 0;
-  position: absolute;
-  z-index: 1;
   top: 200%;
   left: 50%;
-  margin-left: -80px;
+  margin-left: -370px;
 }
 
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-  rotate: 100%;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
 
 /* fade in the popup*/
 @-webkit-keyframes fadeIn {
