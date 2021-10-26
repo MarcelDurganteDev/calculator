@@ -9,7 +9,7 @@ class Calculator {
 		//With this function we reset the values every time the function starts
 		this.currentNumber = "";
 		this.previousNumber = "";
-		this.operation = undefined;
+		this.currentOperation = undefined;
 	}
 	appendNumber(number) {
 		if (number === "." && this.currentNumber.includes(".")) return; //With this If statement we manage to just print one '.'
@@ -17,11 +17,10 @@ class Calculator {
 	}
 	chooseOperation(operation) {
 		if (this.currentNumber === "") return; //We check the status of the operation
-		if (this.previousNumber !== "") {
+		if (this.previousNumber !== operation) {
 			//In case previousNumber is something we proceed to calculate (ex. 5+5+5 . First the calculator execute 5+5, reflexes the result and the add 5)
-			this.calculate();
 		}
-		this.operation = operation; //This way we define operation in the object
+		this.currentOperation = operation; //This way we define operation in the object
 		this.previousNumber = this.currentNumber; //We trasfer the value of current to previous
 		this.currentNumber = ""; // and then we set to '' currentNumber.
 	}
@@ -31,7 +30,7 @@ class Calculator {
 		const currentNum = parseFloat(this.currentNumber);
 		if (isNaN(previousNum) || isNaN(currentNum)) return; //Check if is a number
 		switch (
-		this.operation //Choose between operations and operate. The result stored on calculation is refered in currentNumber
+		this.currentOperation //Choose between operations and operate. The result stored on calculation is refered in currentNumber
 		) {
 			case "+":
 				calculation = previousNum + currentNum;
@@ -52,9 +51,10 @@ class Calculator {
 				return;
 		}
 		this.logText = document.getElementById("myPopup");
-		this.logText.innerText = this.logText.innerText + ' ' + `${this.previousNumber}${this.operation}${this.currentNumber}=${calculation}` + ' ';
+		this.logText.innerText = this.logText.innerText + ' ' + `${this.previousNumber}${this.currentOperation}${this.currentNumber}=${calculation}` + ' ';
+		console.log(this.logText.innerText);
 		this.currentNumber = calculation; //Set  currentNumber as calculation so the function updateScreen can read the result
-		this.operation = undefined; //reset the operation
+		this.currentOperation = undefined; //reset the operation
 		this.previousNumber = ""; //reset the previous (in chooseOperation we chage the value of previous to current)
 	}
 	positiveNegative() {
@@ -63,9 +63,9 @@ class Calculator {
 
 	upDateScreen() {
 		this.mainScreen.innerText = this.currentNumber; //The result from calculation is displayed
-		if (this.operation != null) {
+		if (this.currentOperation != null) {
 			//check the status of operation (which origin is in chooseOperation) to print into miniScreen
-			this.miniScreen.innerText = `${this.previousNumber}${this.operation}`;
+			this.miniScreen.innerText = `${this.previousNumber}${this.currentOperation}`;
 		} else {
 			this.miniScreen.innerText = ""; //Clear miniscreen
 		}
