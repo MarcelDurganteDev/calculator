@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -17,13 +18,19 @@
                 <button class="clear-yellow"></button>
                 <button class='clear-green'></button>
             </div>
+
             <div class='divToggle'>
-                <input type="checkbox" name="toggle" id='button-toggle'></button>
+                <input type="checkbox" name="toggle" id='button-toggle'>
             </div>
-        <div data-log class="popup" onclick="operationLog()">
-            <span data-log-text class="popuptext" id="myPopup"></span>
+
+            <i class="fas fa-history icon" id="icon"></i>
+        
+        
         </div>
-        </div>
+
+
+
+
         <div id="display">
             <div data-miniScreen class="mini-display" id='mini'>
             </div>
@@ -52,6 +59,10 @@
             <button data-number class="number" >.</button>
 
             <button data-equal class="operators dark-green" id='equal'>=</button>
+        </div>
+        <div class="my-popup" id="myPopup">
+            <span data-log class="my-popup-text" id="myPopupText"></span>
+        </div>
         </div>
     </div>
     <script src="main.js" defer></script>

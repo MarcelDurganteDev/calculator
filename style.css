@@ -1,30 +1,32 @@
 /* just to set the page so nothing crush*/
 html {
-  font-size: 62.5%;
-  box-sizing: border-box;
+    font-size: 62.5%;
+    box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
 :root {
-  --black-shadow: rgba(0, 0 ,0 , 0.9);
-  --white: rgb(255,255,255);
-  --green: rgb(159,205,190);
-  --ligth-green: rgb(244,253,251);
-  --dark-green: rgb(57,179,135);
-  --neon-green: #3fca3f;
-  --ligth-blue: rgb(46,57,81);
-  --dark-blue: rgba(33,43,65);
-  --grey: rgb(167, 154, 154);
-  --light-grey: rgb(142,160,154);
-  --graffiti: rgb(54,62,71);
-  --orange: rgb(211, 143, 16);
-  --red: rgb(245,84,77);
-  --yellow: #f0be32;
+    --black-shadow: rgba(0, 0, 0, 0.9);
+    --white: rgb(255, 255, 255);
+    --green: rgb(159, 205, 190);
+    --ligth-green: rgb(244, 253, 251);
+    --dark-green: rgb(57, 179, 135);
+    --neon-green: #3fca3f;
+    --ligth-blue: rgb(46, 57, 81);
+    --dark-blue: rgba(33, 43, 65);
+    --grey: rgb(167, 154, 154);
+    --light-grey: rgb(142, 160, 154);
+    --graffiti: rgb(54, 62, 71);
+    --orange: rgb(211, 143, 16);
+    --red: rgb(245, 84, 77);
+    --yellow: #f0be32;
 }
 
 /* light mode */
@@ -35,118 +37,124 @@ html {
 /* main calculator box set-up*/
 
 body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
 }
 
 .calculator {
-  border-radius: 15px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* this way we adjust the display placement of the calculator */
-/*   width: 50%;
-  height: 70%px; */
-  background-color: var(--dark-blue);
-  width: 70vh;
-  max-width: 70vw;
-  max-height: 70vh;
+    border-radius: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+        -50%,
+        -50%
+    ); /* this way we adjust the display placement of the calculator */
+    background-color: var(--dark-blue);
+    max-height: 100vh;
 }
 
-.mini-display, .main-display{
-  width: 100%;
-  border: none;
-  background-color: var(--dark-blue);
-  color: var(--dark-green);
-  text-align: right;
-  justify-content:baseline;
-  padding-right: 15px;
-  overflow: hidden;
+.mini-display,
+.main-display {
+    width: 100%;
+    border: none;
+    background-color: var(--dark-blue);
+    color: var(--dark-green);
+    text-align: right;
+    justify-content: baseline;
+    padding-right: 1.5rem;
+    overflow: hidden;
 }
 
-.mini-display{
-  font-size: 2rem;
-  padding-top: 40px;
-  height: 80px;
+.mini-display {
+    font-size: 2rem;
+    padding-top: 4rem;
+    height: 8rem;
 }
 
-.main-display{
-  font-size: 4rem;
-  height: 80px;
-  padding-bottom: 10px;
-  padding-top: 30px
-
+.main-display {
+    font-size: 4rem;
+    height: 8rem;
+    padding-bottom: 1rem;
+    padding-top: 3rem;
 }
 
 .keys {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  height: 75%;
-  background-color: var(--ligth-blue);
-  align-items: center;
-  justify-content: center;
-  padding-left: 30px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    background-color: var(--ligth-blue);
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    padding: 1rem;
 }
 
 .keys button {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  border-style: none;
-  font-size: xx-large;
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 50%;
+    border-style: none;
+    font-size: xx-large;
+    margin: 1rem;
 }
 
-.keys button:hover{
-  background-color: var(--grey);
-  color: var(--dark-blue);
+.keys button:hover {
+    background-color: var(--grey);
+    color: var(--dark-blue);
 }
 
 #equal {
-  grid-column:3/5;
-  height: 70px;
-  width: 90%;
-  border-radius: 5px;
-  border-style: none;
-  font-size: xx-large;
+    grid-column: 3/5;
+    height: 7rem;
+    width: 90%;
+    border-radius: 0.5rem;
+    border-style: none;
+    font-size: xx-large;
 }
 
-#equal:hover{
-  background-color: var(--orange);
+#equal:hover {
+    background-color: var(--orange);
 }
 
-.menu{
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--dark-blue);
-  height: 3%;
-  margin: 5px;
-  border-radius: 5px;
+.menu {
+    display: flex;
+    justify-content: space-between;
+    height: 3%;
+    margin: 0.5rem;
+    margin-right: 1.5rem;
+    border-radius: 5px;
 }
 
-.menu button{
-  width: 15px;
-  height: 15px;
-  font-size: 7px;
-  border-radius: 50%;
-  margin-left: 8px;
-  margin-top: 8px;
-  border-style: none;
+.menu button {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.7rem;
+    border-radius: 50%;
+    margin-left: 0.8rem;
+    margin-top: 0.8rem;
+    border-style: none;
+}
+
+.icon {
+    color: var(--white);
+    margin-top: 0.5rem;
+    position: relative;
 }
 
 .divToggle {
-  position: relative;
-  display: block;
-  margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
 }
 
 /* .toggle{
@@ -161,166 +169,183 @@ body {
   justify-content: space-between;
 } */
 
-#button-toggle{
-  font-size: 6.5px;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background-color: var(--dark-green);
-  height: 3em;
-  width: 6em;
-  border-radius: 3em;
-  cursor: pointer;
-  transition: background-color 0.09s ease-in-out;
-  position: relative;
-  margin-right: 10px;
+#button-toggle {
+    font-size: 0.65rem;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--dark-green);
+    height: 2rem;
+    width: 4rem;
+    border-radius: 3em;
+    cursor: pointer;
+    transition: background-color 0.09s ease-in-out;
+    position: relative;
 }
 
 #button-toggle:checked {
-background-color: rgb(231, 229, 229);
-border: 1px solid var(--light-grey)
+    background-color: rgb(231, 229, 229);
+    border: 1px solid var(--light-grey);
 }
 
 #button-toggle::after {
-  content:"";
-  height: 2.5em;
-  width: 2.5em;
-  border-radius: 50%;
-  background-color: var(--white);
-  position: absolute;
-  right: 0;
-  margin-top: 2px;
-  transition: right 0.09s ease-in-out;
-  box-shadow: 0 0.1em var(--black-shadow);
+    content: '';
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 50%;
+    background-color: var(--white);
+    position: absolute;
+    right: 0;
+    margin-top: 2px;
+    transition: right 0.09s ease-in-out;
+    box-shadow: 0 0.1em var(--black-shadow);
 }
 
 #button-toggle:checked::after {
-  padding-bottom: 3px;
-  right: 3em;
-  background-color: var(--white);
+    padding-bottom: 3px;
+    right: 3em;
+    background-color: var(--white);
 }
 
-.clear-red{
-  background-color: var(--red);
+.clear-red {
+    background-color: var(--red);
 }
 
-.clear-yellow{
-  background-color: var(--yellow);
+.clear-yellow {
+    background-color: var(--yellow);
 }
 
-.clear-green{
-  background-color: var(--neon-green);
+.clear-green {
+    background-color: var(--neon-green);
 }
 
-body{
-  background-color: var(--green);
+body {
+    background-color: var(--green);
 }
 
-.dark-blue{
-  background-color: var(--dark-blue);
-  color: var(--dark-green);
+.dark-blue {
+    background-color: var(--dark-blue);
+    color: var(--dark-green);
 }
 
 .number {
-background-color: var(--ligth-blue);
-color: var(--light-grey);
+    background-color: var(--ligth-blue);
+    color: var(--light-grey);
 }
 
-.dark-green{
-  background-color: var(--dark-green);
+.dark-green {
+    background-color: var(--dark-green);
 }
 
-.operators.red{
-  background-color: var(--dark-blue);
-  color: var(--dark-green)
+.operators.red {
+    background-color: var(--dark-blue);
+    color: var(--dark-green);
 }
 
 /* LIGHT MODE */
 
-.calculator.toggle{
-  background-color: var(--ligth-green);
+.calculator.toggle {
+    background-color: var(--ligth-green);
 }
 
 .mini-display.toggle {
-  background-color: var(--ligth-green);
-  color: var(--dark-blue);
+    background-color: var(--ligth-green);
+    color: var(--dark-blue);
 }
 
 .main-display.toggle {
-  background-color: var(--ligth-green);
-  color: var(--dark-blue);
-
+    background-color: var(--ligth-green);
+    color: var(--dark-blue);
 }
 
-.keys.toggle{
-  background-color: var(--white);
-
+.keys.toggle {
+    background-color: var(--white);
 }
 
-.number.toggle{
-  background-color: var(--white);
-  color: var(--dark-blue);
+.number.toggle {
+    background-color: var(--white);
+    color: var(--dark-blue);
 }
 
 .operators.toggle {
-  background-color: var(--ligth-green);
-  color: var(--dark-blue);
+    background-color: var(--ligth-green);
+    color: var(--dark-blue);
 }
 
-.menu.toggle{
-  background-color: var(--light-green);
+.menu.toggle {
+    background-color: var(--light-green);
 }
 
-
-/* CONSOLE LOG*/
-
-/* Popup container */
-.popup {
-  color: rgba(255, 255, 255, 0);
-  height: 20px;
-  width: 30px;
-  border-radius: 25%;
-  background-color: rgb(196, 200, 240);
-  margin-top: 5px;
-  margin-right: 5px;
-  position: relative;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.icon.toggle {
+    color: var(--dark-blue);
 }
 
 /* The actual popup */
-.popup:hover {
-  visibility: visible;
-  font-size: 20px;
-  height: 400px;
-  width: 400px;
-  background-color: #555;
-  color: #fff;
-  text-align: initial;
-  border-radius: 6px;
-  padding: 8px 0;
-  top: 200%;
-  left: 50%;
-  margin-left: -370px;
+.my-popup {
+    display: grid;
+    grid-template-rows: 80% auto;
+    font-size: 20px;
+    height: 20rem;
+    width: 20rem;
+    background-color: var(--light-grey);
+    color: var(--white);
+    text-align: initial;
+    border-radius: 6px;
+    padding: 8px 0;
+    top: 0%;
+    left: 210%;
+    margin-left: -370px;
+    position: absolute;
+    padding-left: 1rem;
 }
 
+.display-none {
+    visibility: hidden;
+}
+
+.my-popup-text {
+    height: 15rem;
+    width: 18rem;
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 100%;
+    max-height: 15rem;
+    overflow: hidden;
+}
+
+.clear-log-btn {
+  
+    height: 2rem;
+    width: 3rem;
+    font-size: 1rem;
+    background-color: var(--ligth-blue);
+    color: var(--white);
+    border: none;
+    border: 5px;
+    margin-left: 7rem;
+}
 
 /* fade in the popup*/
 @-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* CLOSE FUNCTION */
 
-body.close{
-visibility: hidden;
+body.close {
+    visibility: hidden;
 }

@@ -85,6 +85,7 @@ function changeColor() {
 	document.getElementById("main-screen").classList.toggle("toggle");
 	document.getElementById("mini").classList.toggle("toggle");
 	document.getElementById("masMenos").classList.toggle("toggle");
+	document.getElementById("icon").classList.toggle("toggle");
 	btnNumber.forEach(key => {
 		key.classList.toggle("toggle");
 	});
@@ -104,9 +105,11 @@ const btnPositive_Negative = document.querySelector('[data-positive_negative]');
 const miniScreen = document.querySelector("[data-miniScreen]");
 const mainScreen = document.querySelector("[data-mainScreen]");
 const calculator = new Calculator(miniScreen, mainScreen);
-const btnLog = document.querySelector('[data-log]');
+const logPopup = document.querySelector('[data-log]');
 const btnClose = document.querySelector('[data-close]');
-
+const clearLogBtn = document.getElementById('clearLogBtn');
+const historyLog = document.getElementById('icon');
+const myPopup = document.querySelector('.my-popup');
 //BUTTONS ITERATION WITH CALCULATOR OBJECT AND IT'S FUNCTIONS
 
 btnNumber.forEach((key) => {
@@ -138,14 +141,11 @@ btnPositive_Negative.addEventListener("click", () => {
 	calculator.upDateScreen();
 });
 
+historyLog.addEventListener("click", () => {
+	myPopup.classList.toggle('display-none')
+})
 
-//Funtion to open/close the operation log
-
-function operationLog() {
-	var popup = document.getElementById("myPopup");
-	popup.classList.toggle("show");
-}
-
+//Funtion to clear history log
 
 //Function to close the calculator
 btnClose.addEventListener("click", closeAll);
