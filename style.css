@@ -58,7 +58,8 @@ body {
         -50%
     ); /* this way we adjust the display placement of the calculator */
     background-color: var(--dark-blue);
-    max-height: 100vh;
+    max-height: 80vh;
+    max-width: 80vw;
 }
 
 .mini-display,
@@ -314,7 +315,7 @@ body {
 }
 
 .clear-log-btn {
-  
+
     height: 2rem;
     width: 3rem;
     font-size: 1rem;
