@@ -283,6 +283,7 @@ body {
 
 /* The actual popup */
 .my-popup {
+    visibility: hidden;
     display: grid;
     grid-template-rows: 80% auto;
     font-size: 20px;
