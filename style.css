@@ -301,7 +301,7 @@ body {
 }
 
 .display-none {
-    visibility: hidden;
+    visibility: visible;
 }
 
 .my-popup-text {
